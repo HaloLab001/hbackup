@@ -1132,7 +1132,7 @@ restore_data_file_internal(FILE *in, FILE *out, pgFile *file, uint32 backup_vers
 			cur_pos_in != headers[n_hdr].pos)
 		{
 			if (fseek(in, headers[n_hdr].pos, SEEK_SET) != 0)
-				elog(ERROR, "Cannot seek to offset %u of \"%s\": %s",
+				elog(ERROR, "Cannot seek to offset %lu of \"%s\": %s",
 					headers[n_hdr].pos, from_fullpath, strerror(errno));
 
 			cur_pos_in = headers[n_hdr].pos;
